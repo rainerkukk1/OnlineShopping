@@ -15,6 +15,7 @@ const server = http.createServer(function(request, response) {
         request.on('end', function() {
             const post = qs.parse(body)
             console.log(post);
+
             const result = calculatePrice.calculateProductPrice(Number(post.customerAge), String(post.productType), parseBool(post.hasReturns), parseBool(post.isLoyaltyMember))
             console.log(result);
             response.writeHead(200, {'Content-Type': 'text/html'})
@@ -28,7 +29,12 @@ const server = http.createServer(function(request, response) {
                         <label for="html">Your age?</label><br>
                         <input type="number" name="customerAge"/><br>
                         <label for="html">Which product do you wish to buy? (A, B, C, D)</label><br>
-                        <input type="text" name="productType" /><br>
+                        <select name="productType" id="productType">
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                        </select>
                         <label for="html">Have you returned any items in the past?</label><br>
                         <input type=checkbox name="hasReturns" /><br>
                         <label for="html">Are you a loyalty member?</label><br>

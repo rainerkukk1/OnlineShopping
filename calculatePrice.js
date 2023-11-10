@@ -1,5 +1,5 @@
 function applyAgeRestrictions(customerAge, productType) {
-    if (customerAge <= 21) {
+    if (customerAge < 21) {
         return false;
     }
 
@@ -21,14 +21,14 @@ function applyProductPriceRules(basePrice, productType, hasReturns, isLoyaltyMem
     }
 
     if (isLoyaltyMember) {
-        basePrice *= 0.10;
+        basePrice /= 1.10;
     }
 
     return basePrice;
 }
 
-function generateProductPrice(customerAge) {
-    return customerAge + 15;
+function generateProductPrice() {
+    return basePrice = 20;
 }
 
 function calculateProductPrice(customerAge, productType, hasReturns, isLoyaltyMember) {
@@ -40,7 +40,7 @@ function calculateProductPrice(customerAge, productType, hasReturns, isLoyaltyMe
     let basePrice = generateProductPrice(customerAge);
     console.log(basePrice);
 
-    basePrice = applyProductPriceRules(basePrice, productType, hasReturns, isLoyaltyMember);
+    basePrice = Math.floor(applyProductPriceRules(basePrice, productType, hasReturns, isLoyaltyMember));
 
     if (basePrice > MAX_PRODUCT_PRICE) {
         return `Maximum price exceeded: $${MAX_PRODUCT_PRICE}`;
