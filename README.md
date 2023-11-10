@@ -1,6 +1,6 @@
-# Refactoring - car rental company price calculator
+# Testing - Online Shopping
 
-The task is to refactor the program code so that it meets clean code standards and follows all business requirements.
+The task is to write test to the program code so that it meets all business requirements.
 
 # How to get the project
 
